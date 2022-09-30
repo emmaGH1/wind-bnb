@@ -1,4 +1,6 @@
 export { default as Logo } from './logo.png'
 export { default as Search } from './search.svg'
+export { default as Search2 } from './search2.svg'
 export { default as Star } from './star-icon.png'
+export {default as Location } from './location.svg'
 export {default as windApi } from './stays.json'

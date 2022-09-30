@@ -15,7 +15,8 @@ module.exports = {
         custom: ['0px 1px 6px rgba(0, 0, 0, 0.1)']
       },
       colors: {
-        custom1 : '#4F4F4F'
+        custom1 : '#4F4F4F',
+        custom2: 'rgba(79, 79, 79, 0.4)'
       }
     },
   },

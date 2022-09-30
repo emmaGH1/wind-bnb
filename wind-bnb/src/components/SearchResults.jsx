@@ -15,9 +15,11 @@ const SearchResults = ({apiData}) => {
        {
         apiData.map(({ beds, rating, photo, city, country, superHost, title, type}, i) => (
           <div key={i} className='mb-10'>
-              <img src={photo} 
-                className='rounded-3xl'
-              />
+              <div className='overflow-hidden rounded-3xl '>
+                <img src={photo} 
+                  className=' w-full h-64 object-cover md:hover:scale-[1.2] hover:transition ease-out hover:transform hover:duration-1000'
+                />
+              </div>
               <div className='flex mt-4 justify-between text-custom1'>
                 <div className='flex '>
                   <div className=''>{superHost && 
