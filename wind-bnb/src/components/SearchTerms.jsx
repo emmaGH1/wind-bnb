@@ -3,24 +3,24 @@ import React, { useState, forwardRef} from 'react'
 import { Search2, Location } from '../assets'
 
 
-const SearchTerms = ({searchTerms, setSearchTerms, apiData, setApiData}, ref) => {
-   
+const SearchTerms = ({searchTerms, setSearchTerms, apiData, setApiData, setStaysLength}, ref) => {
+   const [fetchedData, setFetchedData] = useState(apiData)
+   const [filteredData, setFilteredData] = useState(apiData)
+   const [bgColor, setbgColor] = useState(false)
+
    const cities = [ "Helsinki", "Turku", "Vaasa", "Oulu" ]
    
-   const fetchedData = apiData
-   let filteredData
-   
-  const handleClick = (city) => {
-      
-      
-      filteredData = fetchedData.filter((item) => {
+  const handleClick = (city, index) => {
+      setbgColor(index)
+      setFilteredData(fetchedData.filter((item) => {
         return item.city.includes(city)
-     })
+     }))
 
     }
 
   const handleSubmit = () => {
       setApiData(filteredData)
+      setStaysLength(filteredData.length)
       setSearchTerms(false)
   }
    
@@ -53,8 +53,8 @@ const SearchTerms = ({searchTerms, setSearchTerms, apiData, setApiData}, ref) =>
         </div>
         <div className='mt-10 ml-10 sm:ml-28 flex flex-col text-[#4F4F4F] text-sm'>
          {
-          cities.map((city) => (
-            <div className={`py-4 flex hover:bg-black/10 w-80 `} onClick={() => handleClick(city)} key={city} >
+          cities.map((city, index) => (
+            <div className={`py-4 flex hover:bg-black/5 w-80 ${bgColor === index ? 'border border-2 border-[#BDBDBD]' : ''}`} onClick={() => handleClick(city, index)} key={city} >
               <img src={Location} className='w-6 h-6 mr-2'/> {city}, Finland
             </div>
           ))

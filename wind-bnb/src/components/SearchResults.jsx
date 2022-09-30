@@ -3,13 +3,13 @@ import React from 'react'
 
 import { Star } from '../assets/index'
 
-const SearchResults = ({apiData}) => {
+const SearchResults = ({ apiData, staysLength, setStaysLength }) => {
 
   return (
     <div className='font-montserrat'>
       <div className='flex justify-between mt-10'>
         <h3 className='text-2xl font-bold mb-6'>Stays in Finland</h3>
-        <div className='text-custom1 font-medium'>12+ stays</div>
+        <div className='text-custom1 font-medium'>{staysLength >= 11 ? '12+ stays' : `${staysLength} stays`}</div>
       </div>
       <div className='md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-6 grid-flow-row'>
        {
