@@ -38,8 +38,11 @@ const App = () => {
             />
             <SearchResults apiData={apiData} setStaysLength={setStaysLength} staysLength={staysLength} />
         </div>
-        
+        <footer className='text-center mb-10'>
+          Created by <a href='https://github.com/emmaGH1' className='underline'>Maduakor Emmanuel</a> - <a href='https://devchallenges.io/' className='underline'>devchallenge.io</a>
+        </footer>
     </div>
+
  
   )
 }
