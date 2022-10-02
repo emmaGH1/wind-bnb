@@ -2,12 +2,14 @@ import React, { useState, forwardRef} from 'react'
 
 import { Search } from '../assets'
 
-const Searchbar = ({apiData, setApiData, searchTerms, setSearchTerms, locationRef}) => {
-  
-  const handleClick = () => {
+const Searchbar = ({
+  apiData, setApiData, searchTerms, setSearchTerms, isLocation, 
+  setIsLocation, isGuests,setIsGuests
+  }) => {
+  const handleClick = (location) => {
     setSearchTerms(true)
-    locationRef.current.focus()
-    
+    setIsLocation(location)
+    setIsGuests(!location)
   }
   
   const handleSubmit = (e) => {
@@ -21,10 +23,10 @@ const Searchbar = ({apiData, setApiData, searchTerms, setSearchTerms, locationRe
         >
           <div
           className='h-full border-r-4 border border-[#f2f2f2] p-2 py-2 md:p-4 w-full md:w-[45%] rounded-l-2xl text-[#BDBDBD]'
-          onClick={handleClick}
+          onClick={() => handleClick(true)}
           >Add Location</div>
           <div className='h-full border-r-4 border-[#f2f2f2] p-2 py-2 md:p-4 w-full md:w-[35%] text-[#BDBDBD]'
-          onClick={handleClick}
+          onClick={() => handleClick(false)}
           >Add Guests</div>
           <button type='submit' className='w-2/5 md:w-1/5 rounded-r-2xl '>
             <img src={Search} 

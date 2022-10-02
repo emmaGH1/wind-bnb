@@ -3,7 +3,16 @@ import React from 'react'
 import Searchbar from './Searchbar'
 
 import { Logo } from '../assets/index'
-const Navbar = ({apiData, setApiData, searchTerms, setSearchTerms, locationRef}) => {
+const Navbar = ({
+  apiData, 
+  setApiData, 
+  searchTerms, 
+  setSearchTerms, 
+  isLocation,
+  setIsLocation,
+  isGuests,
+  setIsGuests
+  }) => {
   return (
   <>
     <div 
@@ -11,7 +20,8 @@ const Navbar = ({apiData, setApiData, searchTerms, setSearchTerms, locationRef})
     >
       <div><img src={Logo} /></div>
       <Searchbar apiData={apiData} setApiData={setApiData} searchTerms={searchTerms} setSearchTerms={setSearchTerms} 
-        locationRef={locationRef}
+        isLocation={isLocation} setIsLocation={setIsLocation}
+        isGuests={isGuests} setIsGuests={setIsGuests}
       />
     </div>
     <div>

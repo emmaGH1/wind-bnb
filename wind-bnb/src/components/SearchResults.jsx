@@ -17,6 +17,7 @@ const SearchResults = ({ apiData, staysLength, setStaysLength }) => {
           <div key={i} className='mb-10'>
               <div className='overflow-hidden rounded-3xl '>
                 <img src={photo} 
+                  loading='lazy'
                   className=' w-full h-64 object-cover md:hover:scale-[1.2] hover:transition ease-out hover:transform hover:duration-1000'
                 />
               </div>
